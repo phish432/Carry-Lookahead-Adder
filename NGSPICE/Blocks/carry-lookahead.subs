@@ -1,0 +1,21 @@
+* Carry Lookahead Block
+
+.subckt clblock c1 c2 c3 c4 p0 p1 p2 p3 g0 g1 g2 g3 c0
+xand21 a0 p0 c0 and2
+xor21  c1 g0 a0 or2
+
+xand22 a1 p1 g0 and2
+xand31 a2 p1 p0 c0 and3
+xor31  c2 g1 a1 a2 or3
+
+xand23 a3 p2 g1 and2
+xand32 a4 p2 p1 g0 and3
+xand41 a5 p2 p1 p0 c0 and4
+xor41  c3 g2 a3 a4 a5 or4
+
+xand24 a6 p3 g2 and2
+xand33 a7 p3 p2 g1 and3
+xand42 a8 p3 p2 p1 g0 and4
+xand51 a9 p3 p2 p1 p0 c0 and5
+xor51  c4 g3 a6 a7 a8 a9 or5
+.ends

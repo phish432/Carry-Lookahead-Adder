@@ -1,0 +1,104 @@
+.include ../../TSMC_180nm.txt
+
+** Parameters **
+.param VSupply=1.8
+.global vdd gnd
+
+** Input Voltages **
+VS vdd gnd VSupply
+V1 in1 gnd pulse VSupply 0 0 100p 100p 10n 20n
+V2 in2 gnd pulse VSupply 0 0 100p 100p 20n 40n
+* V3 in3 gnd pulse VSupply 0 0 100p 100p 40n 80n
+* V4 in4 gnd pulse VSupply 0 0 100p 100p 80n 160n
+* V5 in5 gnd pulse VSupply 0 0 100p 100p 160n 320n
+
+** Circuit Description **
+.option scale=0.09u
+* Netlist
+M1000 a_66_6# in1 out w_32_0# CMOSP w=8 l=2
++  ad=64 pd=32 as=64 ps=32
+M1001 a_15_n12# in1 gnd Gnd CMOSN w=4 l=2
++  ad=20 pd=18 as=88 ps=76
+M1002 out in1 a_46_n62# Gnd CMOSN w=4 l=2
++  ad=32 pd=24 as=32 ps=24
+M1003 a_15_n12# in1 vdd w_2_0# CMOSP w=8 l=2
++  ad=40 pd=26 as=176 ps=108
+M1004 vdd a_15_n62# a_66_6# w_32_0# CMOSP w=8 l=2
++  ad=0 pd=0 as=0 ps=0
+M1005 a_15_n62# in2 vdd w_2_n50# CMOSP w=8 l=2
++  ad=40 pd=26 as=0 ps=0
+M1006 a_46_n62# in2 gnd Gnd CMOSN w=4 l=2
++  ad=0 pd=0 as=0 ps=0
+M1007 gnd a_15_n12# a_66_n62# Gnd CMOSN w=4 l=2
++  ad=0 pd=0 as=32 ps=24
+M1008 a_15_n62# in2 gnd Gnd CMOSN w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+M1009 a_46_6# a_15_n12# vdd w_32_0# CMOSP w=8 l=2
++  ad=64 pd=32 as=0 ps=0
+M1010 a_66_n62# a_15_n62# out Gnd CMOSN w=4 l=2
++  ad=0 pd=0 as=0 ps=0
+M1011 out in2 a_46_6# w_32_0# CMOSP w=8 l=2
++  ad=0 pd=0 as=0 ps=0
+C0 a_15_n62# out 0.08fF
+C1 a_15_n12# in2 0.02fF
+C2 a_15_n12# a_15_n62# 0.02fF
+C3 w_2_0# in1 0.06fF
+C4 in2 vdd 0.02fF
+C5 a_15_n62# vdd 0.11fF
+C6 in2 a_15_n62# 0.36fF
+C7 in1 w_32_0# 0.06fF
+C8 w_2_0# a_15_n12# 0.03fF
+C9 w_32_0# out 0.02fF
+C10 in1 gnd 0.21fF
+C11 w_2_0# vdd 0.05fF
+C12 a_15_n12# w_32_0# 0.19fF
+C13 in1 out 0.12fF
+C14 gnd out 0.04fF
+C15 in1 a_15_n12# 0.06fF
+C16 w_2_n50# vdd 0.05fF
+C17 vdd w_32_0# 0.11fF
+C18 a_15_n12# gnd 0.08fF
+C19 w_2_n50# in2 0.06fF
+C20 in2 w_32_0# 0.06fF
+C21 a_15_n12# out 0.08fF
+C22 w_2_n50# a_15_n62# 0.03fF
+C23 in1 vdd 0.30fF
+C24 a_15_n62# w_32_0# 0.06fF
+C25 gnd vdd 0.23fF
+C26 in1 in2 0.11fF
+C27 in2 gnd 0.76fF
+C28 vdd out 0.03fF
+C29 gnd a_15_n62# 0.31fF
+C30 a_15_n12# vdd 0.74fF
+C31 gnd Gnd 0.64fF
+C32 out Gnd 0.23fF
+C33 vdd Gnd 0.17fF
+C34 a_15_n62# Gnd 0.26fF
+C35 in2 Gnd 0.39fF
+C36 in1 Gnd 1.62fF
+C37 a_15_n12# Gnd 0.17fF
+C38 w_2_n50# Gnd 0.48fF
+C39 w_32_0# Gnd 1.12fF
+C40 w_2_0# Gnd 0.48fF
+
+** Analysis **
+.tran 1p 40n
+* .tran 1p 80n
+* .tran 1p 160n
+* .tran 1p 320n
+
+** Plotting **
+.control
+set hcopypscolor=1
+set color0=white
+set color1=black
+run
+set curplottitle="2020102037_Q5_Test_Gate"
+* plot out in1+2
+plot out in1+2 in2+4
+* plot out in1+2 in2+4 in3+6
+* plot out in1+2 in2+4 in3+6 in4+8
+* plot out in1+2 in2+4 in3+6 in4+8 in5+10
+.endc
+
+.end

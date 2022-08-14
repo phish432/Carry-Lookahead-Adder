@@ -1,0 +1,13 @@
+* 2-Input AND Gate
+
+.subckt and2 out in1 in2
+* 2-Input NAND Gate
+MN1 n01 in1 n02 n02 CMOSN W=width_N L={2*LAMBDA}
+MN2 n02 in2 gnd gnd CMOSN W=width_N L={2*LAMBDA}
+MP1 n01 in1 vdd vdd CMOSP W=width_P L={2*LAMBDA}
+MP2 n01 in2 vdd vdd CMOSP W=width_P L={2*LAMBDA}
+
+* NOT Gate
+MN3 out n01 gnd gnd CMOSN W=width_N L={2*LAMBDA}
+MP3 out n01 vdd vdd CMOSP W=width_P L={2*LAMBDA}
+.ends

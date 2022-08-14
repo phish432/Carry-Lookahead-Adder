@@ -1,0 +1,25 @@
+* 2-Input XOR Gate
+
+.subckt not out in1
+MN1 out in1 gnd gnd CMOSN W=width_N L={2*LAMBDA}
+MP1 out in1 vdd vdd CMOSP W=width_P L={2*LAMBDA}
+.ends
+
+.subckt twopmos n01 n02 in1 in2
+MP1 n03 in1 n01 n01 CMOSP W=width_P L={2*LAMBDA}
+MP2 n02 in2 n03 n03 CMOSP W=width_P L={2*LAMBDA}
+.ends
+
+.subckt twonmos n01 n02 in1 in2
+MP1 n01 in1 n03 n03 CMOSN W=width_N L={2*LAMBDA}
+MP2 n03 in2 n02 n02 CMOSN W=width_N L={2*LAMBDA}
+.ends
+
+.subckt xor2 out in1 in2
+xnot1 nn1 in1 not
+xnot2 nn2 in2 not
+xtwopmos1 vdd out nn1 in2 twopmos
+xtwopmos2 vdd out in1 nn2 twopmos
+xtwonmos1 out gnd in1 in2 twonmos
+xtwonmos2 out gnd nn1 nn2 twonmos
+.ends

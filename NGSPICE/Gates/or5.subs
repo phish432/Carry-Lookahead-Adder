@@ -1,0 +1,19 @@
+* 5-Input OR Gate
+
+.subckt or5 out in1 in2 in3 in4 in5
+* 5-Input NOR Gate
+MN1 n01 in1 gnd gnd CMOSN W=width_N L={2*LAMBDA}
+MN2 n01 in2 gnd gnd CMOSN W=width_N L={2*LAMBDA}
+MN3 n01 in3 gnd gnd CMOSN W=width_N L={2*LAMBDA}
+MN4 n01 in4 gnd gnd CMOSN W=width_N L={2*LAMBDA}
+MN5 n01 in5 gnd gnd CMOSN W=width_N L={2*LAMBDA}
+MP1 n01 in1 n02 n02 CMOSP W=width_P L={2*LAMBDA}
+MP2 n02 in2 n03 n03 CMOSP W=width_P L={2*LAMBDA}
+MP3 n03 in3 n04 n04 CMOSP W=width_P L={2*LAMBDA}
+MP4 n04 in4 n05 n05 CMOSP W=width_P L={2*LAMBDA}
+MP5 n05 in5 vdd vdd CMOSP W=width_P L={2*LAMBDA}
+
+* NOT Gate
+MN6 out n01 gnd gnd CMOSN W=width_N L={2*LAMBDA}
+MP6 out n01 vdd vdd CMOSP W=width_P L={2*LAMBDA}
+.ends

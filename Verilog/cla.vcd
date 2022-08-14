@@ -1,0 +1,144 @@
+$date
+	Tue Dec  7 11:39:25 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module testbench $end
+$var wire 4 ! s [3:0] $end
+$var wire 4 " c [3:0] $end
+$var reg 4 # a [3:0] $end
+$var reg 4 $ b [3:0] $end
+$var reg 1 % cin $end
+$scope module X $end
+$var wire 1 & Cin $end
+$var wire 4 ' a [3:0] $end
+$var wire 4 ( b [3:0] $end
+$var wire 1 % cin $end
+$var wire 1 ) w0 $end
+$var wire 1 * w1 $end
+$var wire 1 + w2 $end
+$var wire 1 , w3 $end
+$var wire 1 - w4 $end
+$var wire 1 . w5 $end
+$var wire 1 / w6 $end
+$var wire 1 0 w7 $end
+$var wire 1 1 w8 $end
+$var wire 1 2 w9 $end
+$var wire 4 3 s [3:0] $end
+$var wire 4 4 p [3:0] $end
+$var wire 4 5 g [3:0] $end
+$var wire 4 6 c [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 6
+b0 5
+b0 4
+b0 3
+02
+01
+00
+0/
+0.
+0-
+0,
+0+
+0*
+0)
+b0 (
+b0 '
+z&
+0%
+b0 $
+b0 #
+b0 "
+b0 !
+$end
+#20000
+b1000 !
+b1000 3
+b110 "
+b110 6
+1,
+b100 4
+b10 5
+b10 $
+b10 (
+b110 #
+b110 '
+#40000
+b10 "
+b10 6
+0,
+b1101 !
+b1101 3
+b1001 4
+b1010 $
+b1010 (
+b11 #
+b11 '
+#60000
+b1011 "
+b1011 6
+b1 4
+b1010 5
+1)
+b110 !
+b110 3
+1%
+b1011 #
+b1011 '
+#80000
+b0 "
+b0 6
+b0 4
+b0 5
+0)
+b0 !
+b0 3
+0%
+b0 $
+b0 (
+b0 #
+b0 '
+#100000
+b1 "
+b1 6
+1)
+b1001 4
+b1010 !
+b1010 3
+1%
+b1001 #
+b1001 '
+#120000
+0)
+b1111 !
+b1111 3
+b1111 "
+b1111 6
+b0 4
+b1111 5
+b1111 $
+b1111 (
+b1111 #
+b1111 '
+#140000
+1,
+b110 "
+b110 6
+b100 4
+b10 5
+b1000 !
+b1000 3
+0%
+b10 $
+b10 (
+b110 #
+b110 '

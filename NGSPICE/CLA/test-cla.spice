@@ -1,0 +1,66 @@
+.include ../../TSMC_180nm.txt
+.include ../Gates/and2.subs
+.include ../Gates/and3.subs
+.include ../Gates/and4.subs
+.include ../Gates/and5.subs
+.include ../Gates/or2.subs
+.include ../Gates/or3.subs
+.include ../Gates/or4.subs
+.include ../Gates/or5.subs
+.include ../Gates/xor2.subs
+.include ../Blocks/propogate-generate.subs
+.include ../Blocks/carry-lookahead.subs
+.include ../Blocks/sum.subs
+.include carry-lookahead-adder.subs
+
+** Parameters **
+.param VSupply=1.8
+.param LAMBDA=0.09u
+.param width_N=10*LAMBDA
+.param width_P=20*LAMBDA
+.global vdd gnd
+
+** Input Voltages **
+VS vdd gnd VSupply
+
+.param HIGH=VSupply
+.param LOW=0
+
+* A = a3 a2 a1 a0
+VA0 a0 gnd pulse LOW  HIGH 0 100p 100p 40n 80n
+VA1 a1 gnd pulse HIGH LOW  0 100p 100p 10n 20n
+VA2 a2 gnd pulse HIGH LOW  0 100p 100p 20n 40n
+VA3 a3 gnd pulse LOW  HIGH 0 100p 100p 20n 40n
+
+* B = b3 b2 b1 b0
+VB0 b0 gnd pulse HIGH LOW  0 100p 100p 40n 80n
+VB1 b1 gnd pulse LOW  HIGH 0 100p 100p 20n 40n
+VB2 b2 gnd pulse LOW  HIGH 0 100p 100p 10n 20n
+VB3 b3 gnd pulse HIGH LOW  0 100p 100p 10n 20n
+
+* Carry-In = c0
+VC0 c0 gnd pulse HIGH LOW  0 100p 100p 20n 40n
+
+** Circuit Description **
+* SUM = c4 s3 s2 s1 s0
+xcla1 s0 s1 s2 s3 c4 a0 a1 a2 a3 b0 b1 b2 b3 c0 cla
+
+** Analysis **
+.tran 1p 80n
+
+** Plotting **
+.control
+set hcopypscolor=1
+set color0=white
+set color1=black
+run
+set curplottitle="2020102037_Q3_Test_CLA"
+plot a0 a1+2 a2+4 a3+6
+plot b0 b1+2 b2+4 b3+6
+plot p0 p1+2 p2+4 p3+6
+plot g0 g1+2 g2+4 g3+6
+plot c1 c2+2 c3+4 c4+6
+plot s0 s1+2 s2+4 s3+6 c4+8
+.endc
+
+.end

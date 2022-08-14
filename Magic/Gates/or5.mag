@@ -1,0 +1,115 @@
+magic
+tech scmos
+timestamp 1638745599
+<< nwell >>
+rect 0 0 92 20
+<< ntransistor >>
+rect 13 -47 15 -43
+rect 25 -47 27 -43
+rect 37 -47 39 -43
+rect 49 -47 51 -43
+rect 61 -47 63 -43
+rect 79 -47 81 -43
+<< ptransistor >>
+rect 13 6 15 14
+rect 25 6 27 14
+rect 37 6 39 14
+rect 49 6 51 14
+rect 61 6 63 14
+rect 79 6 81 14
+<< ndiffusion >>
+rect 10 -47 13 -43
+rect 15 -47 18 -43
+rect 22 -47 25 -43
+rect 27 -47 30 -43
+rect 34 -47 37 -43
+rect 39 -47 42 -43
+rect 46 -47 49 -43
+rect 51 -47 54 -43
+rect 58 -47 61 -43
+rect 63 -47 66 -43
+rect 78 -47 79 -43
+rect 81 -47 82 -43
+<< pdiffusion >>
+rect 10 6 13 14
+rect 15 6 25 14
+rect 27 6 37 14
+rect 39 6 49 14
+rect 51 6 61 14
+rect 63 6 66 14
+rect 78 6 79 14
+rect 81 6 82 14
+<< ndcontact >>
+rect 6 -47 10 -43
+rect 18 -47 22 -43
+rect 30 -47 34 -43
+rect 42 -47 46 -43
+rect 54 -47 58 -43
+rect 66 -47 70 -43
+rect 74 -47 78 -43
+rect 82 -47 86 -43
+<< pdcontact >>
+rect 6 6 10 14
+rect 66 6 70 14
+rect 74 6 78 14
+rect 82 6 86 14
+<< polysilicon >>
+rect 13 14 15 17
+rect 25 14 27 17
+rect 37 14 39 17
+rect 49 14 51 17
+rect 61 14 63 17
+rect 79 14 81 17
+rect 13 -43 15 6
+rect 25 -43 27 6
+rect 37 -43 39 6
+rect 49 -43 51 6
+rect 61 -43 63 6
+rect 79 -43 81 6
+rect 13 -50 15 -47
+rect 25 -50 27 -47
+rect 37 -50 39 -47
+rect 49 -50 51 -47
+rect 61 -50 63 -47
+rect 79 -50 81 -47
+<< polycontact >>
+rect 9 -5 13 -1
+rect 21 -12 25 -8
+rect 33 -19 37 -15
+rect 45 -26 49 -22
+rect 57 -33 61 -29
+rect 75 -24 79 -20
+<< metal1 >>
+rect 0 20 92 24
+rect 6 14 10 20
+rect 74 14 78 20
+rect 0 -5 9 -1
+rect 0 -12 21 -8
+rect 0 -19 33 -15
+rect 66 -20 70 6
+rect 82 -20 86 6
+rect 0 -26 45 -22
+rect 66 -24 75 -20
+rect 82 -24 92 -20
+rect 0 -33 57 -29
+rect 66 -36 70 -24
+rect 18 -40 70 -36
+rect 18 -43 22 -40
+rect 42 -43 46 -40
+rect 66 -43 70 -40
+rect 82 -43 86 -24
+rect 6 -51 10 -47
+rect 30 -51 34 -47
+rect 54 -51 58 -47
+rect 74 -51 78 -47
+rect 0 -55 92 -51
+<< labels >>
+rlabel metal1 0 -5 4 -1 3 in1
+rlabel metal1 0 -12 4 -8 3 in2
+rlabel metal1 0 -19 4 -15 3 in3
+rlabel metal1 0 -26 4 -22 3 in4
+rlabel metal1 0 -33 4 -29 3 in5
+rlabel metal1 0 20 92 24 5 vdd
+rlabel metal1 0 -55 92 -51 1 gnd
+rlabel metal1 88 -24 92 -20 7 out
+<< end >>

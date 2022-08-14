@@ -1,0 +1,60 @@
+.include ../../TSMC_180nm.txt
+.include not.subs
+.include and2.subs
+.include and3.subs
+.include and4.subs
+.include and5.subs
+.include or2.subs
+.include or3.subs
+.include or4.subs
+.include or5.subs
+.include xor2.subs
+
+** Parameters **
+.param VSupply=1.8
+.param LAMBDA=0.09u
+.param width_N=10*LAMBDA
+.param width_P=20*LAMBDA
+.global vdd gnd
+
+** Input Voltages **
+VS vdd gnd VSupply
+* V1 in1 gnd pulse VSupply 0 0 100p 100p 10n 20n
+* V2 in2 gnd pulse VSupply 0 0 100p 100p 20n 40n
+* V3 in3 gnd pulse VSupply 0 0 100p 100p 40n 80n
+* V4 in4 gnd pulse VSupply 0 0 100p 100p 80n 160n
+* V5 in5 gnd pulse VSupply 0 0 100p 100p 160n 320n
+
+** Circuit Description **
+* xnot1 out in1 not
+* xand2 out in1 in2 and2
+* xand3 out in1 in2 in3 and3
+* xand4 out in1 in2 in3 in4 and4
+* xand5 out in1 in2 in3 in4 in5 and5
+* xor2  out in1 in2 or2
+* xor3  out in1 in2 in3 or3
+* xor4  out in1 in2 in3 in4 or4
+* xor5  out in1 in2 in3 in4 in5 or5
+* xxor2 out in1 in2 xor2
+
+** Analysis **
+* .tran 1p 40n
+* .tran 1p 80n
+* .tran 1p 160n
+* .tran 1p 320n
+
+** Plotting **
+.control
+set hcopypscolor=1
+set color0=white
+set color1=black
+run
+set curplottitle="2020102037_Q3_Test"
+* plot out in1+2
+* plot out in1+2 in2+4
+* plot out in1+2 in2+4 in3+6
+* plot out in1+2 in2+4 in3+6 in4+8
+* plot out in1+2 in2+4 in3+6 in4+8 in5+10
+.endc
+
+.end
